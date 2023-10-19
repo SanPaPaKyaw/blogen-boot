@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<div th:fragment="categoryTable">
+  <header class="py-2 bg-success text-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h1><i class="fas fa-folder-open mr-2"></i> Categories </h1>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </header>
+
+  <section class="py-4 mb-4 bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 offset-md-6">
+          <div class="input-group">
+            <input type="text" class="form-control">
+            <div class="input-group-append">
+              <button class="btn btn-success">Search</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <div class="card-header">
+              <h3>Latest Categories</h3>
+            </div>
+            <table class="table table-striped">
+              <thead class="thead-dark">
+              <tr>
+                <th>#</th>
+                <th>Title</th>
+                <th>Date Posted</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr th:each="cat : ${categories}">
+                <td th:text="${cat.id}"></td>
+                <td th:text="${cat.title}"></td>
+                <td th:text="${cat.datePosted}"></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+</div>
+
+</body>
+</html>

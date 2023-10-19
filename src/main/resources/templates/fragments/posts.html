@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<div th:fragment="post">
+    <header class="py-2 bg-primary text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h1><i class="fas fa-pencil-alt mr-2"></i> Post</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="py-4 mb-4 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 offset-6">
+                    <div class="input-group">
+                        <input type="text" class="form-control">
+                        <div class="input-group-append">
+                            <button type="button" class="btn btn-primary">Search</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section th:fragment="postTable">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Latest Post</h4>
+                        </div>
+                        <table class="table table-striped">
+                            <thead class="thead-dark">
+                            <tr>
+                                <th>No</th>
+                                <th>Name</th>
+                                <th>Date Posted</th>
+                                <th>Category</th>
+                                <th>User Name</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="po : ${posts}">
+                                <td th:text="${po.id}"></td>
+                                <td th:text="${po.title}"></td>
+                                <td th:text="${po.datePosted}"></td>
+                                <td th:text="${po.category.title}"></td>
+                                <td th:text="${po.user.name}"> </td>
+
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+</body>
+</html>
